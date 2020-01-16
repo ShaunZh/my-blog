@@ -1,0 +1,27 @@
+html,
+body,
+#root {
+  height: 100%;
+  /* Helvetica、Helvetica Neue - mac下的西文字体 */
+  /* Arial - windows下的西文字体 */
+  /* 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC' - mac下的中文字体*/
+  /* 'Microsoft YaHei' - windows下的中文字体 */
+  /* 'WenQuanYi Micro Hei' - linux下的中文字体*/
+  /*  sans-serif - 无衬线字体族，当字体都找不到时，使用该字体族*/
+  font-family: 'Georgia', 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC',
+    'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* 用户function */
+.uf-cm {
+  color: #000;
+}
+.uf-cs {
+  color: #808080;
+}
+
+/* end  用户function  */

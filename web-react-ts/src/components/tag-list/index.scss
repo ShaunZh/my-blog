@@ -1,0 +1,24 @@
+.m-tag {
+  margin: 32px 0;
+  border-radius: 16px;
+  border: 1px solid #d3d3d3;
+  .u-header {
+    border-bottom: 1px solid #d3d3d3;
+    margin: 16px 16px 0;
+    padding-bottom: 4px;
+    font-size: 18px;
+    font-weight: normal;
+  }
+  .m-tag-list {
+    padding: 16px;
+    font-size: 14.4px;
+    color: #111;
+    .m-item {
+      margin-bottom: 16px;
+      list-style: square inside;
+      .u-title:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

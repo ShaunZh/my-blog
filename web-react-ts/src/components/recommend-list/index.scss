@@ -1,0 +1,12 @@
+.m-recommend-list {
+  margin: 32px 0;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #d3d3d3;
+  .m-item {
+    margin-bottom: 16px;
+    .u-title:hover {
+      text-decoration: underline;
+    }
+  }
+}
