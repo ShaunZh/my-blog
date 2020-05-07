@@ -9,7 +9,8 @@
     "moduleResolution": "node",
     "removeComments": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noEmit": true,
     "typeRoots": [
       "./node_modules/@types"
