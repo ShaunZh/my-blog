@@ -3,7 +3,7 @@
  * @Author: Hexon
  * @Date: 2020-05-07 14:01:39
  * @LastEditors: Hexon
- * @LastEditTime: 2020-05-07 14:27:16
+ * @LastEditTime: 2020-06-19 16:25:16
  */
 
 'use strict';
@@ -11,40 +11,36 @@ const Service = require('egg').Service;
 
 class TagService extends Service {
   async index(query) {
-    const tags = await this.ctx.model.Tag.findAll(query);
-    return tags;
+    return await this.ctx.model.Tag.findAndCountAll(query);
   }
   async create(info) {
-    const tag = await this.ctx.model.Tag.create(info);
-    return tag;
+    return await this.ctx.model.Tag.create(info);
   }
   async update(info) {
-    const { id, params } = info;
-    const tag = await this.ctx.model.Tag.findByPk(id);
-    if (!tag) {
-      return {
-        success: false,
-      };
-    }
-    await tag.update(params);
-    return {
-      success: true,
-      tag,
-    };
+    const { id, name } = info;
+    return await this.ctx.model.Tag.update(
+      {
+        name,
+      },
+      {
+        where: {
+          id,
+        },
+      },
+    );
   }
-  async destory(id) {
-    const tag = await this.ctx.model.Tag.findByPk(id);
-    if (!tag) {
-      return {
-        success: false,
-      };
-    }
-    await tag.destory();
-    return {
-      success: true,
-    };
+
+  async getTagById(id) {
+    return await this.ctx.model.Tag.findByPk(id);
+  }
+
+  async delete(id) {
+    return await this.ctx.model.Tag.destory({
+      where: {
+        id,
+      },
+    });
   }
 }
-
 
 module.exports = TagService;

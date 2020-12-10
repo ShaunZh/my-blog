@@ -1,10 +1,13 @@
 {
   "development": {
-    "username": "root",
-    "password": "hexon804",
+    "username": "hexon",
+    "password": "CloudAli@1024!",
     "database": "blog_default",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "rm-2zejozmhtra9r87p7yo.mysql.rds.aliyuncs.com",
+    "dialect": "mysql",
+    "port": "3306",
+    "underscored": true,
+    "timezone": "+08:00"
   },
   "test": {
     "username": "root",

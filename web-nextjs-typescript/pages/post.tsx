@@ -1,14 +1,15 @@
-import * as React from "react";
-import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import Layout from "../components/Layout";
-import AssetFooter from "../components/AssetFooter";
+import * as React from 'react';
+import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
+import Layout from '../components/Layout';
+import AssetFooter from '../components/AssetFooter';
 
 class Post extends React.Component {
   public componentDidMount() {}
+
   public render() {
-    const input = "# This is a header\n\nAnd this is a paragraph";
-    const tagNumber = "12456";
+    const input = '# This is a header\n\nAnd this is a paragraph';
+    const tagNumber = '12456';
     return (
       <Layout title="标签">
         <div className="g-post">

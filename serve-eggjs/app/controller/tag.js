@@ -3,56 +3,58 @@
  * @Author: Hexon
  * @Date: 2020-05-06 17:32:06
  * @LastEditors: Hexon
- * @LastEditTime: 2020-05-08 15:21:07
+ * @LastEditTime: 2020-06-19 16:26:00
  */
 'use strict';
+const Controller = require('egg').Controller;
 
 const toInt = require('../../utils/tools').toInt;
-const Controller = require('egg').Controller;
+const formatDateTime = require('../../utils/tools').formatDateTime;
 
 class TagController extends Controller {
   async index() {
     const ctx = this.ctx;
-    const query = { limit: toInt(ctx.query.limit), offset: toInt(ctx.query.offset) };
-    ctx.body = ctx.service.tag.index(query);
+    const query = {
+      limit: toInt(ctx.query.limit),
+      offset: toInt(ctx.query.offset),
+    };
+    ctx.body = await ctx.service.tag.index(query);
+    ctx.status = 200;
   }
 
   async create() {
     const ctx = this.ctx;
     const { name } = ctx.request.body;
-    const tag = await ctx.service.tag.create({ name });
+    if (!name) {
+      ctx.throw(422, '请输入标签名');
+    }
+
+    const dateTime = formatDateTime(Date.now());
+    await ctx.service.tag.create({ name, create_at: dateTime });
     ctx.status = 201; // 201 created: 表示请求已被实现
-    ctx.body = tag;
   }
 
   async update() {
     const ctx = this.ctx;
-    const id = toInt(ctx.params.id);
-    const params = {
-      name: ctx.request.params,
-    };
-
-    const { success, tag } = await ctx.service.tag.update({
-      id,
-      params,
-    });
-    if (!success) {
-      ctx.status = 404;
-      return;
+    let { id, name } = ctx.request.body;
+    id = toInt(id);
+    const tag = await ctx.service.tag.getTagById(id);
+    if (!tag) {
+      ctx.throw(422, '标签不存在');
     }
-    ctx.status = 204;
-    ctx.body = tag;
+    await ctx.service.tag.update({
+      id,
+      name,
+    });
+
+    ctx.status = 200;
   }
 
-  async destory() {
+  async delete() {
     const ctx = this.ctx;
     const id = toInt(ctx.params.id);
 
-    const { success } = await ctx.service.tag.destory(id);
-    if (!success) {
-      ctx.status = 404;
-      return;
-    }
+    await ctx.service.tag.destory(id);
     ctx.status = 200;
   }
 }

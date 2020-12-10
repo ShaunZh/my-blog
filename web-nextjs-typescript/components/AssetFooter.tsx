@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 interface IProps {
   postDate: string;
@@ -15,11 +15,11 @@ const AssetFooter = (props: IProps) => {
             className="u-license"
             href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh"
           >
-            Creative Commons BY-NC 3.0 CN{" "}
+            Creative Commons BY-NC 3.0 CN{' '}
           </a>
         </li>
         <li className="item">
-          发表日期：{" "}
+          发表日期：{' '}
           <abbr className="u-published" title={props.postDate}>
             {props.postDate}
           </abbr>
@@ -53,6 +53,7 @@ const AssetFooter = (props: IProps) => {
           color: #567;
         }
         .list-wrap {
+          margin: 0;
           padding-left: 20px;
           padding-right: 20px;
           color: #567;

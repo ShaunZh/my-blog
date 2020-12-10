@@ -7,8 +7,8 @@ module.exports = {
     await queryInterface.createTable('user', {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true },
       name: STRING(30), // 用户名
-      account: STRING(30), // 登录账号
-      password: STRING(30), // 登录密码
+      username: STRING(30), // 登录账号
+      passhash: STRING(100), // 登录密码
       age: INTEGER,
       email: STRING,
       avatar: STRING,

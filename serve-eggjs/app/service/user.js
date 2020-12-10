@@ -3,12 +3,13 @@
  * @Author: Hexon
  * @Date: 2020-05-07 14:44:30
  * @LastEditors: Hexon
- * @LastEditTime: 2020-06-09 18:58:06
+ * @LastEditTime: 2020-06-19 15:47:36
  */
 'use strict';
 const Service = require('egg').Service;
 const dayjs = require('dayjs');
-
+const utility = require('utility');
+// const { Op } = require('sequelize');
 class UserService extends Service {
   async login(params) {
     const { account, password } = params;
@@ -29,9 +30,15 @@ class UserService extends Service {
       ctx.throw(422, '密码错误');
     }
     // 过期时间
-    const accessTokenExpiresAt = dayjs(Date.now + 60 * 60 * 1000, 'YYYY-MM-DD hh:mm');
+    const accessTokenExpiresAt = dayjs(
+      Date.now + 60 * 60 * 1000,
+      'YYYY-MM-DD hh:mm',
+    );
     // 生成access token
-    const accessToken = this.app.jwt.sign({ account, password, exp: Math.floor(Date.now() / 1000) + (60 * 60) }, this.app.config.jwt.secret);
+    const accessToken = this.app.jwt.sign(
+      { account, password, exp: Math.floor(Date.now() / 1000) + 60 * 60 },
+      this.app.config.jwt.secret,
+    );
     // 存储access token 到oauth表中
     await ctx.service.oauth.create({
       userId: user.id,
@@ -44,32 +51,52 @@ class UserService extends Service {
     };
   }
 
-  async register(params) {
-    const { account, password, confirm } = params;
+  async create(username, passhash, email, avatarUrl) {
     const ctx = this.ctx;
-    const user = await ctx.model.User.findOne({
-      where: {
-        account,
-      },
+    return await ctx.model.User.create({
+      username,
+      passhash,
+      email,
+      avatar: avatarUrl,
     });
-
-    if (user) {
-      ctx.throw(403, '用户已存在');
-    }
-
-    if (password !== confirm) {
-      ctx.throw(403, '输入的密码不一致');
-    }
-
-    await ctx.model.User.create({
-      account,
-      password,
+  }
+  async getUsersByQuery(query) {
+    return await this.ctx.model.User.findAll({
+      where: query,
     });
-    return {
-      success: true,
-    };
   }
 
+  makeGravatar(email) {
+    return (
+      'http://www.gravatar.com/avatar/' +
+      utility.md5(email.toLowerCase()) +
+      '?size=48'
+    );
+  }
+
+  async getUserByLoginName(username) {
+    return await this.ctx.model.User.findOne({
+      where: {
+        username,
+      },
+    });
+  }
+
+  async getUserById(id) {
+    if (!id) {
+      return null;
+    }
+
+    return await this.ctx.model.User.findOne({
+      id,
+    });
+  }
+
+  async getUserByToken(token) {
+    if (!token) {
+      return null;
+    }
+  }
 }
 
 module.exports = UserService;

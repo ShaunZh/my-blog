@@ -22,15 +22,17 @@ module.exports = {
     enable: true,
     package: 'egg-cors',
   },
-  passport: {
+  mysql: {
     enable: true,
-    package: 'egg-passport',
+    package: 'egg-mysql',
   },
+  // passport: {
+  //   enable: true,
+  //   package: 'egg-passport',
+  // },
 
-  passportLocal: {
-    enable: true,
-    package: 'egg-passport-local',
-  },
-
-
+  // passportLocal: {
+  //   enable: true,
+  //   package: 'egg-passport-local',
+  // },
 };

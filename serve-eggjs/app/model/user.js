@@ -3,24 +3,41 @@
  * @Author: Hexon
  * @Date: 2020-05-07 16:28:49
  * @LastEditors: Hexon
- * @LastEditTime: 2020-05-07 17:39:23
+ * @LastEditTime: 2020-06-19 16:21:29
  */
 'use strict';
 
-module.exports = app => {
-  const { INTEGER, STRING, DATE, BOOLEAN } = app.Sequelize;
+const dayjs = require('dayjs');
+module.exports = (app) => {
+  const { INTEGER, STRING, DATE, BOOLEAN, NOW } = app.Sequelize;
   const User = app.model.define('user', {
     id: { type: INTEGER, primaryKey: true, autoIncrement: true },
     name: STRING(30), // 用户名
-    account: STRING(30), // 登录账号
-    password: STRING(30), // 登录密码
+    username: { type: STRING(30), allowNull: false }, // 登录账号
+    passhash: { type: STRING, allowNull: false }, // 登录密码
     age: INTEGER,
     email: STRING,
     avatar: STRING,
     job: STRING,
     status: BOOLEAN,
-    created_at: DATE,
-    updated_at: DATE,
+    create_at: {
+      type: DATE,
+      allowNull: false,
+      defaultValue: NOW,
+      get() {
+        const rawValue = this.getDataValue('create_at');
+        return dayjs(rawValue).format('YYYY-MM-DD HH:mm:ss');
+      },
+    },
+    update_at: {
+      type: DATE,
+      allowNull: false,
+      defaultValue: NOW,
+      get() {
+        const rawValue = this.getDataValue('update_at');
+        return dayjs(rawValue).format('YYYY-MM-DD HH:mm:ss');
+      },
+    },
   });
   return User;
 };

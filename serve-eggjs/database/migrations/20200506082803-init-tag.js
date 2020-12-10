@@ -16,10 +16,9 @@ module.exports = {
       create_at: DATE,
       update_at: DATE,
     });
-
   },
 
-  down: async queryInterface => {
+  down: async (queryInterface) => {
     await queryInterface.dropTable('tag');
   },
 };

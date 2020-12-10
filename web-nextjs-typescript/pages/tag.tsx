@@ -1,40 +1,40 @@
-import * as React from "react";
+import * as React from 'react';
 
-import PostListItem from "../components/PostListItem";
+import PostListItem from '../components/PostListItem';
 
 class Tag extends React.Component {
   public render() {
     const yearPostList = [
       {
-        year: "2019年",
+        year: '2019年',
         postList: [
           {
-            title: "第一篇文章",
-            time: "2019-01-02",
-            number: "124566"
+            title: '第一篇文章',
+            time: '2019-01-02',
+            number: '124566',
           },
           {
-            title: "第二篇文章",
-            time: "2019-01-02",
-            number: "24566"
-          }
-        ]
+            title: '第二篇文章',
+            time: '2019-01-02',
+            number: '24566',
+          },
+        ],
       },
       {
-        year: "2018年",
+        year: '2018年',
         postList: [
           {
-            title: "第一篇文章",
-            time: "2019-01-02",
-            number: "12466"
+            title: '第一篇文章',
+            time: '2019-01-02',
+            number: '12466',
           },
           {
-            title: "第二篇文章",
-            time: "2019-01-02",
-            number: "2566"
-          }
-        ]
-      }
+            title: '第二篇文章',
+            time: '2019-01-02',
+            number: '2566',
+          },
+        ],
+      },
     ];
     return (
       <div className="g-tag">

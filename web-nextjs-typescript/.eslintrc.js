@@ -1,20 +1,20 @@
+/*
+ * @Description:
+ * @Author: Hexon
+ * @Date: 2020-03-17 14:06:01
+ * @LastEditors: Hexon
+ * @LastEditTime: 2020-06-12 17:28:35
+ */
 module.exports = {
-  extends: ["alloy", "alloy/react", "alloy/typescript"],
-  env: {
-    // Your environments (which contains several predefined global variables)
-    //
-    // browser: true,
-    // node: true,
-    // mocha: true,
-    // jest: true,
-    // jquery: true
-  },
+  extends: [require.resolve('@umijs/fabric/dist/eslint')],
   globals: {
-    // Your global variables (setting to false means it's not allowed to be reassigned)
-    //
-    // myGlobal: false
+    page: true,
+    Aliplayer: true,
+    Paho: true,
   },
   rules: {
-    // Customize your rules
-  }
+    // 'no-useless-constructor': 'off',
+    // '@typescript-eslint/no-useless-constructor': ['error'],
+    '@typescript-eslint/no-unused-vars': ['warn'],
+  },
 };

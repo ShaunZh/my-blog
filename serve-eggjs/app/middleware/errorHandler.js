@@ -3,7 +3,7 @@
  * @Author: Hexon
  * @Date: 2020-05-07 18:10:04
  * @LastEditors: Hexon
- * @LastEditTime: 2020-06-11 14:05:54
+ * @LastEditTime: 2020-06-16 16:53:51
  */
 'use strict';
 module.exports = () => {
@@ -11,7 +11,6 @@ module.exports = () => {
     try {
       await next();
     } catch (err) {
-      console.log('eeeeeee:', err);
       // 所有的异常都在 app 上触发一个 error 事件，框架会记录一条错误日志
       ctx.app.emit('error', err, ctx);
       const status = err.status || 500;

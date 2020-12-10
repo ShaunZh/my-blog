@@ -7,10 +7,13 @@
     "declarations": true
   },
   "dependencies": {
+    "base-64": "^0.1.0",
+    "bcryptjs": "^2.4.3",
     "dayjs": "^1.8.26",
     "egg": "^2.15.1",
     "egg-cors": "^2.2.3",
     "egg-jwt": "^3.1.7",
+    "egg-mysql": "^3.0.0",
     "egg-onerror": "^2.1.0",
     "egg-passport": "^2.1.1",
     "egg-passport-local": "^1.2.1",
@@ -18,8 +21,11 @@
     "egg-sequelize": "^5.2.1",
     "egg-validate": "^2.0.2",
     "mockjs": "^1.1.0",
+    "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "utility": "^1.16.3",
+    "validator": "^13.1.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -29,6 +35,7 @@
     "egg-mock": "^3.21.0",
     "eslint": "^5.13.0",
     "eslint-config-egg": "^7.1.0",
+    "prettier": "^2.0.5",
     "sequelize-cli": "^5.5.1"
   },
   "engines": {
