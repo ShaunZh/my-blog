@@ -1,21 +1,15 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport #sideNav
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === false">
-    <!-- <mat-toolbar>Menu</mat-toolbar> -->
-    <mat-nav-list>
-      <a mat-list-item href="/testMaterial">test-material</a>
-      <a mat-list-item href="/testNavigation">test-navigation</a>
-    </mat-nav-list>
+<mat-sidenav-container class="container">
+  <mat-sidenav #drawer class="sidenav-container" fixedInViewport #sideNav
+    [attr.role]="(isHandset | async) ? 'dialog' : 'navigation'" [mode]="(isHandset | async) ? 'over' : 'side'"
+    [opened]="(isHandset | async) === false">
+    <app-sidenav-header></app-sidenav-header>
+    <app-nav-list [activeRoute]="activeRoutePath"></app-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav taoggle icon">menu</mat-icon>
-      </button>
-    </mat-toolbar>
-    <router-outlet></router-outlet>
+  <mat-sidenav-content class="content-container">
+    <app-layout-header [isHandset]="isHandset | async" (sidenavToggled)="drawer.toggle()"></app-layout-header>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
     <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>

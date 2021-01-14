@@ -2,11 +2,21 @@
   height: 100%;
 }
 
-.sidenav {
-  width: 200px;
-  background-color: pink;
+.sidenav-container {
+  width: 240px;
+
+  // background-color: #;
+  
 }
 
 .content-container {
   background-color: #fcfcfc;
+  .content {
+    position: relative;
+  }
+  .sidenav-toggle {
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
 }

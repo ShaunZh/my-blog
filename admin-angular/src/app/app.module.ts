@@ -22,13 +22,23 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu'
+import { LayoutHeaderComponent } from './layout-header/layout-header.component';
+import { NavListComponent } from './nav-list/nav-list.component';
+import { SidenavHeaderComponent } from './sidenav-header/sidenav-header.component';
+import { TagManageComponent } from './tag-manage/tag-manage.component';
+import { PostManageComponent } from './post-manage/post-manage.component';
 
 @NgModule({
-  declarations: [
+  declarations: [					
     AppComponent,
     TestMaterialComponent,
-    TestNavigationComponent
-  ],
+    TestNavigationComponent,
+      LayoutHeaderComponent,
+      NavListComponent,
+      SidenavHeaderComponent,
+      TagManageComponent,
+      PostManageComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
