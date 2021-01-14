@@ -1,2 +1,21 @@
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport #sideNav
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+    <!-- <mat-toolbar>Menu</mat-toolbar> -->
+    <mat-nav-list>
+      <a mat-list-item href="/testMaterial">test-material</a>
+      <a mat-list-item href="/testNavigation">test-navigation</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav taoggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

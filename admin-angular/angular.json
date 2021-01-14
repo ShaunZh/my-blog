@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "admin-angular"
+  "defaultProject": "admin-angular",
+  "cli": {
+    "analytics": "63e51c30-8439-4a3b-b180-a5b7d4832981"
+  }
 }

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "start:backup": "ng serve --port 4200 --host 127.0.0.1",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
@@ -16,6 +17,7 @@
     "@angular/common": "~10.1.0",
     "@angular/compiler": "~10.1.0",
     "@angular/core": "~10.1.0",
+    "@angular/flex-layout": "^11.0.0-beta.33",
     "@angular/forms": "~10.1.0",
     "@angular/material": "^10.2.7",
     "@angular/platform-browser": "~10.1.0",
