@@ -1,0 +1,20 @@
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  // flex: 1;
+  margin-right: 20px;
+  align-items: center;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+table {
+  width: 100%;
+}
+
+
+// ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}

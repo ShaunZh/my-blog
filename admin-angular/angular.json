@@ -124,6 +124,9 @@
             }
           }
         }
+      },
+      "i18n": {
+        "sourceLocale": "zh-CN"
       }
     }
   },

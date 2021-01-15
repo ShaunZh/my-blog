@@ -27,18 +27,23 @@ import { NavListComponent } from './nav-list/nav-list.component';
 import { SidenavHeaderComponent } from './sidenav-header/sidenav-header.component';
 import { TagManageComponent } from './tag-manage/tag-manage.component';
 import { PostManageComponent } from './post-manage/post-manage.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table'
+
 
 @NgModule({
-  declarations: [					
+  declarations: [
     AppComponent,
     TestMaterialComponent,
     TestNavigationComponent,
-      LayoutHeaderComponent,
-      NavListComponent,
-      SidenavHeaderComponent,
-      TagManageComponent,
-      PostManageComponent
-   ],
+    LayoutHeaderComponent,
+    NavListComponent,
+    SidenavHeaderComponent,
+    TagManageComponent,
+    PostManageComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -56,7 +61,11 @@ import { PostManageComponent } from './post-manage/post-manage.component';
     MatIconModule,
     MatListModule,
     MatMenuModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
