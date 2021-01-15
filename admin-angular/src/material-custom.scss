@@ -1,0 +1,14 @@
+/*
+ * @Description: 重写material 组件
+ * @Author: Hexon
+ * @Date: 2021-01-15 16:07:56
+ * @LastEditors: Hexon
+ * @LastEditTime: 2021-01-15 16:21:33
+ */
+// form-field 表单输入框
+.mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+.mat-form-field-wrapper {padding-bottom: 0.5em;}
+.mat-form-field-appearance-outline .mat-form-field-subscript-wrapper{padding: 0.8em 0 !important}
+
+.mat-button-base {height: 32px; line-height: 32px !important;}
+
