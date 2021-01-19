@@ -3,7 +3,7 @@
  * @Author: Hexon
  * @Date: 2020-05-07 18:10:04
  * @LastEditors: Hexon
- * @LastEditTime: 2020-06-16 16:53:51
+ * @LastEditTime: 2021-01-19 14:00:53
  */
 'use strict';
 module.exports = () => {
@@ -20,7 +20,10 @@ module.exports = () => {
         ? 'Internel Server Error'
         : message;
       // 从 error 对象上读出各个属性，设置到响应中
-      ctx.body = { error };
+      ctx.body = {
+        code: status,
+        message: error,
+      };
       if (status === 402) {
         ctx.body.detail = err.errors;
       }

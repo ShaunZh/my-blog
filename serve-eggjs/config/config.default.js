@@ -19,7 +19,7 @@ module.exports = (appInfo) => {
   config.authCookieName = 'node_club';
 
   // add your middleware config here
-  config.middleware = ['errorHandler'];
+  config.middleware = ['errorHandler', 'formatResponse'];
   // config.errorHandler = {
   // };
   config.jwt = {

@@ -3,7 +3,7 @@
  * @Author: Hexon
  * @Date: 2020-06-11 15:33:35
  * @LastEditors: Hexon
- * @LastEditTime: 2020-08-09 17:52:07
+ * @LastEditTime: 2021-01-19 18:14:28
  */
 
 'use strict';
@@ -29,5 +29,8 @@ module.exports = (app) => {
   router.post('/tag/delete', controller.tag.delete);
 
   // post
-  router.get('/post', controller.post.list);
+  router.get('/post/index', controller.post.index);
+  router.post('/post/create', controller.post.create);
+  router.post('/post/update', controller.post.update);
+  router.post('/post/delete', controller.post.delete);
 };

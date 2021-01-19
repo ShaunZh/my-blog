@@ -11,5 +11,6 @@
     "vue",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "svn.ignoreMissingSvnWarning": true
 }

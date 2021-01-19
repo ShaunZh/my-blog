@@ -3,12 +3,12 @@
  * @Author: Hexon
  * @Date: 2020-06-16 18:35:04
  * @LastEditors: Hexon
- * @LastEditTime: 2020-06-18 10:15:17
+ * @LastEditTime: 2021-01-18 18:25:31
  */
 'use strict';
 
-module.exports = app => {
-  return async function(ctx, next) {
+module.exports = (app) => {
+  return async (ctx, next) => {
     // 1. 获取accessToken
     let accessToken = '';
     if (ctx.headers.authorization && ctx.headers.authorization.split(' ')[0] === 'Bearer') {
