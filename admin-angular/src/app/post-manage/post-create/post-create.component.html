@@ -1,0 +1,30 @@
+<div class="container">
+  <form [formGroup]="postForm" novalidate (ngSubmit)="onSubmit()" class="form-container">
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <input type="text" matInput placeholder="请输入文章标题" formControlName="title">
+          <mat-error *ngIf="postForm.controls['title'].hasError('required')">
+            文章标题不能为空
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-select placeholder="请选择标签" formControlName="tags" multiple>
+            <mat-option *ngFor="let tag of tags" [value]="tag.value">{{tag.label}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <textarea matInput placeholder="请输入文章内容" formControlName="postContent"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <button mat-raised-button color="primary" type="sumbmit" [disabled]="!postForm.valid">提交</button>
+      </div>
+
+    </div>
+  </form>
+</div>
