@@ -2,8 +2,8 @@ import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http'
 
-export type HandleErro =
-  <T> (operation?: string, resulte?: T) => (error: HttpErrorResponse) => Observable<T>;
+export type HandleError =
+  <T> (operation?: string, result?: T) => (error: HttpErrorResponse) => Observable<T>;
 
 @Injectable()
 export class HttpErrorHandlerService {

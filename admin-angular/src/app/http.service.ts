@@ -7,18 +7,24 @@ const httpOptions = {
   })
 }
 
+const baseUrl = 'http://127.0.0.1:7001'
+
 @Injectable()
 export class HttpService {
 
   constructor(private httpClient: HttpClient) { }
 
-  request<T>(url: string, method: 'post' | 'get' | 'put' | 'delete', data?: T, options?: any) {
+  request<R>(url: string, method: 'post' | 'get' | 'put' | 'delete', data?: any, options?: any) {
 
     let optionsBk = options || {}
-    return this.httpClient.request(method, url, {
+    let newUrl = url;
+    if (url.indexOf('http') !== 0) {
+      newUrl = baseUrl + url
+    }
+    console.log('request: ', data)
+    return this.httpClient.request<R>(method, newUrl, {
       body: data || {},
       ...{ optionsBk }
     })
   }
-
 }

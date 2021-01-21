@@ -44,7 +44,11 @@ export class PostManageComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator
   displayedColumns: string[] = ['title', 'abstract', 'tag', 'createDate', 'updateDate', 'status', 'operate']
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA)
-  pageEvent: PageEvent;
+  pageEvent: PageEvent = {
+    pageSize: 10,
+    pageIndex: 1,
+    length: 0
+  };
 
   constructor(private fb: FormBuilder, private postService: PostService, public dialog: MatDialog) { }
 
@@ -55,6 +59,20 @@ export class PostManageComponent implements OnInit {
   onSubmit() {
     if (this.filterForm.valid) {
       console.log('onSubmit', this.filterForm, this.pageEvent)
+      const { pageIndex = 1, pageSize = 10 } = this.pageEvent
+      const { keywords = '', tag = '' } = this.filterForm.value
+      this.postService.getPosts({
+        page: {
+          pageIndex,
+          pageSize
+        },
+        data: {
+          keywords,
+          tag
+        }
+      }).subscribe(result => {
+        console.log('result: ', result)
+      })
     } else {
       console.log('fail')
     }
